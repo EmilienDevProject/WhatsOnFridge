@@ -9,42 +9,50 @@ import Foundation
 import UIKit
 
 class HomeView: UIViewController {
-    
+ 
+    var presenter: HomePresenter!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("hello world")
+        let interactor = HomeInteractor()
+        presenter = HomePresenter(interactor: interactor)
         setupUI()
+        tableView.reloadData()
     }
     
     private lazy var createButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Create", for: .normal)
+        button.setTitle("C", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .green
+        button.addTarget(self, action: #selector(tapAddButton), for: .touchUpInside)
         return button
     }()
     
     private lazy var deleteButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Delete", for: .normal)
+        button.setTitle("D", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .red
+        button.addTarget(self, action: #selector(tapDeleteButton), for: .touchUpInside)
         return button
     }()
     
     private lazy var readButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Read", for: .normal)
+        button.setTitle("R", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .cyan
+        button.addTarget(self, action: #selector(tapButtonUnactivate), for: .touchUpInside)
         return button
     }()
     
     private lazy var updateButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Update", for: .normal)
+        button.setTitle("U", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = .orange
+        button.addTarget(self, action: #selector(tapButtonUnactivate), for: .touchUpInside)
         return button
     }()
     
@@ -59,14 +67,32 @@ class HomeView: UIViewController {
         return buttonView
     }()
     
+    private lazy var tableView: UITableView = {
+       let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        return tableView
+    }()
+    
     func setupUI(){
+        view.backgroundColor = .white
         view.addSubview(buttonContentView)
+        view.addSubview(tableView)
+        
         let heightButton = CGFloat(30)
-        let widthButton = CGFloat(30)
+        let widthButton = CGFloat(60)
         
         NSLayoutConstraint.activate([
+            buttonContentView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            buttonContentView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            buttonContentView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            buttonContentView.heightAnchor.constraint(equalToConstant: 40),
+            buttonContentView.widthAnchor.constraint(equalToConstant: 300),
+            
             createButton.topAnchor.constraint(equalTo: buttonContentView.topAnchor, constant: 5),
-            createButton.leadingAnchor.constraint(equalTo: buttonContentView.leadingAnchor, constant: 5),
+            createButton.leadingAnchor.constraint(equalTo: buttonContentView.leadingAnchor, constant: 70),
             createButton.heightAnchor.constraint(equalToConstant: heightButton),
             createButton.widthAnchor.constraint(equalToConstant: widthButton),
             
@@ -76,7 +102,7 @@ class HomeView: UIViewController {
             readButton.widthAnchor.constraint(equalToConstant: widthButton),
             
             updateButton.centerYAnchor.constraint(equalTo: createButton.centerYAnchor),
-            updateButton.leadingAnchor.constraint(equalTo: readButton.leadingAnchor, constant: 5),
+            updateButton.leadingAnchor.constraint(equalTo: readButton.trailingAnchor, constant: 5),
             updateButton.heightAnchor.constraint(equalToConstant: heightButton),
             updateButton.widthAnchor.constraint(equalToConstant: widthButton),
             
@@ -85,10 +111,37 @@ class HomeView: UIViewController {
             deleteButton.heightAnchor.constraint(equalToConstant: heightButton),
             deleteButton.widthAnchor.constraint(equalToConstant: widthButton),
             
-            buttonContentView.topAnchor.constraint(equalTo: view.topAnchor),
-            buttonContentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            buttonContentView.heightAnchor.constraint(equalToConstant: 40),
-            buttonContentView.widthAnchor.constraint(equalToConstant: 145)
+            tableView.topAnchor.constraint(equalTo: buttonContentView.bottomAnchor, constant: 20),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+            
         ])
     }
 }
+
+extension HomeView {
+    @objc func tapAddButton(){
+        presenter.buttonAddTapped()
+    }
+    @objc func tapDeleteButton(){
+        presenter.buttonDeleteTapped()
+    }
+    @objc func tapButtonUnactivate(){
+        presenter.ButtonUnactiveTapped()
+    }
+}
+
+extension HomeView: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return presenter.items.count // Adapte selon ta source de données
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let item = presenter.items[indexPath.row] // Assure-toi que `items` est bien initialisé dans le Presenter
+        cell.textLabel?.text = item
+        return cell
+    }
+}
+

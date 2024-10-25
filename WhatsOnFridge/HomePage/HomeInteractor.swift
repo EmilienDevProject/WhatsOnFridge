@@ -6,3 +6,18 @@
 //
 
 import Foundation
+
+class HomeInteractor {
+    
+    func handleButtonAddTapped(){
+        print("FUNC TAP ADD BUTTON")
+    }
+    
+    func handleButtonDeleteTapped(){
+        print("FUNC TAP DELETE BUTTON")
+    }
+    
+    func handleButtonUnactivateTapped(){
+        print ("FUNC TAPP UNACTIVATE BUTTON")
+    }
+}

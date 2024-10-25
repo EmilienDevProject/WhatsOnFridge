@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D766C55F2CC94F3F00EBBD6D /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D766C55E2CC94F3F00EBBD6D /* PrimaryButton.swift */; };
 		EB0F60242CC80E6100F1AD35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F60232CC80E6100F1AD35 /* AppDelegate.swift */; };
 		EB0F60262CC80E6100F1AD35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F60252CC80E6100F1AD35 /* SceneDelegate.swift */; };
 		EB0F60282CC80E6100F1AD35 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F60272CC80E6100F1AD35 /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D766C55E2CC94F3F00EBBD6D /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		EB0F60202CC80E6100F1AD35 /* WhatsOnFridge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsOnFridge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0F60232CC80E6100F1AD35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB0F60252CC80E6100F1AD35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +51,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D766C55D2CC94F1E00EBBD6D /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				D766C55E2CC94F3F00EBBD6D /* PrimaryButton.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
 		EB0F60172CC80E6100F1AD35 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +107,7 @@
 		EB0F603A2CC813A700F1AD35 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				D766C55D2CC94F1E00EBBD6D /* Button */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -174,6 +185,7 @@
 			files = (
 				EB0F60482CC815C500F1AD35 /* HomeTest.swift in Sources */,
 				EB0F60282CC80E6100F1AD35 /* ViewController.swift in Sources */,
+				D766C55F2CC94F3F00EBBD6D /* PrimaryButton.swift in Sources */,
 				EB0F603E2CC8155000F1AD35 /* HomeView.swift in Sources */,
 				EB0F60242CC80E6100F1AD35 /* AppDelegate.swift in Sources */,
 				EB0F60442CC8158B00F1AD35 /* HomeModel.swift in Sources */,
