@@ -120,6 +120,8 @@ class HomeView: UIViewController {
     }
 }
 
+// MARK: ACTION BUTTON
+
 extension HomeView {
     @objc func tapAddButton(){
         presenter.buttonAddTapped()
@@ -131,6 +133,8 @@ extension HomeView {
         presenter.ButtonUnactiveTapped()
     }
 }
+
+// MARK: TABLE VIEW
 
 extension HomeView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
