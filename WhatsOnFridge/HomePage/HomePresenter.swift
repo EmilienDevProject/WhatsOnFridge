@@ -9,12 +9,20 @@ import Foundation
 
 class HomePresenter {
     
-    var interactor: HomeInteractor
-    var items: [String] = ["Item 1", "Item 2", "Item 3"] // Exemple de données
-
+    weak var viewController: HomeView?
+    
+    let interactor: HomeInteractor
         init(interactor: HomeInteractor) {
             self.interactor = interactor
-        }
+    }
+    var legumes: [HomeModel.Legume] = []
+    
+    func showLegumes(_ legumes: [HomeModel.Legume]) {
+        let legumeViewModels = legumes.map { "\($0.name) - \($0.description), \($0.weight)g" }
+        viewController?.afficherLegumes(legumeViewModels)
+    }
+    
+    var items: [String] = ["Item 1", "Item 2", "Item 3"]
     
     func buttonAddTapped(){
         interactor.handleButtonAddTapped()

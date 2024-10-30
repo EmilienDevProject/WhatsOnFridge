@@ -9,6 +9,14 @@ import Foundation
 
 class HomeInteractor {
     
+    var presenter: HomePresenter?
+    let worker = HomeWorker()
+    
+    func retrieveLegumes(){
+        let legumes = worker.getLegumes()
+        presenter?.showLegumes(legumes)
+    }
+    
     func handleButtonAddTapped(){
         print("FUNC TAP ADD BUTTON")
     }

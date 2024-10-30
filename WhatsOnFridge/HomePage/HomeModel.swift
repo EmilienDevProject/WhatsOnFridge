@@ -7,6 +7,26 @@
 
 import Foundation
 
-class HomeModel {
+public class HomeModel {
     
+    struct Legume {
+        let name: String
+        let description: String
+        let weight: Int
+        let image: String?
+    }
+    
+    struct Fruit {
+        let name: String
+        let description: String
+        let weight: Int
+        let image: String?
+    }
+    
+    struct Viande {
+        let name: String
+        let description: String
+        let weight: Int
+        let image: String?
+    }
 }

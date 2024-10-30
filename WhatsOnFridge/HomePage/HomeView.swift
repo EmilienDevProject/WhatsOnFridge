@@ -14,10 +14,14 @@ class HomeView: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let interactor = HomeInteractor()
         presenter = HomePresenter(interactor: interactor)
+        interactor.presenter = presenter
+        presenter.viewController = self
+        
         setupUI()
-        tableView.reloadData()
+        presenter.interactor.retrieveLegumes()
     }
     
     private lazy var createButton: UIButton = {
@@ -138,14 +142,19 @@ extension HomeView {
 
 extension HomeView: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.items.count // Adapte selon ta source de données
+        return presenter.items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let item = presenter.items[indexPath.row] // Assure-toi que `items` est bien initialisé dans le Presenter
+        let item = presenter.items[indexPath.row]
         cell.textLabel?.text = item
         return cell
     }
+    
+    func afficherLegumes(_ legumes: [String]) {
+            print("Données des légumes : \(legumes)")
+            // Enregistrer ou afficher dans la tableView si nécessaire
+        }
 }
 
