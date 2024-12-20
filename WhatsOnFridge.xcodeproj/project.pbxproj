@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A99FA402D157E2A00E17B6A /* MenuType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A99FA3F2D157E2A00E17B6A /* MenuType.swift */; };
 		EB0F60242CC80E6100F1AD35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F60232CC80E6100F1AD35 /* AppDelegate.swift */; };
 		EB0F60262CC80E6100F1AD35 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F60252CC80E6100F1AD35 /* SceneDelegate.swift */; };
 		EB0F60282CC80E6100F1AD35 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0F60272CC80E6100F1AD35 /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A99FA3F2D157E2A00E17B6A /* MenuType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuType.swift; sourceTree = "<group>"; };
 		EB0F60202CC80E6100F1AD35 /* WhatsOnFridge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsOnFridge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0F60232CC80E6100F1AD35 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB0F60252CC80E6100F1AD35 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +51,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9A99FA3E2D157DFC00E17B6A /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				9A99FA412D157E3200E17B6A /* Menu */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		9A99FA412D157E3200E17B6A /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				9A99FA3F2D157E2A00E17B6A /* MenuType.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
 		EB0F60172CC80E6100F1AD35 = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +86,7 @@
 		EB0F60222CC80E6100F1AD35 /* WhatsOnFridge */ = {
 			isa = PBXGroup;
 			children = (
+				9A99FA3E2D157DFC00E17B6A /* Component */,
 				EB0F60232CC80E6100F1AD35 /* AppDelegate.swift */,
 				EB0F60252CC80E6100F1AD35 /* SceneDelegate.swift */,
 				EB0F60272CC80E6100F1AD35 /* ViewController.swift */,
@@ -75,7 +94,6 @@
 				EB0F602C2CC80E6A00F1AD35 /* Assets.xcassets */,
 				EB0F602E2CC80E6A00F1AD35 /* LaunchScreen.storyboard */,
 				EB0F60312CC80E6A00F1AD35 /* Info.plist */,
-				EB0F603A2CC813A700F1AD35 /* Component */,
 				EB0F60392CC8132F00F1AD35 /* HomePage */,
 			);
 			path = WhatsOnFridge;
@@ -92,13 +110,6 @@
 				EB0F60472CC815C500F1AD35 /* HomeTest.swift */,
 			);
 			path = HomePage;
-			sourceTree = "<group>";
-		};
-		EB0F603A2CC813A700F1AD35 /* Component */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Component;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,6 +183,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A99FA402D157E2A00E17B6A /* MenuType.swift in Sources */,
 				EB0F60482CC815C500F1AD35 /* HomeTest.swift in Sources */,
 				EB0F60282CC80E6100F1AD35 /* ViewController.swift in Sources */,
 				EB0F603E2CC8155000F1AD35 /* HomeView.swift in Sources */,
