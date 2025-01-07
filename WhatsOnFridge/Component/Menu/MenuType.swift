@@ -31,19 +31,23 @@ class MenuType: UIButton {
     }
     
     private func setupMenuButton() {
-        let newAction = UIAction(title: "Mon Frigo", image: UIImage(systemName: "refrigerator.fill")) { _ in
-            print("Nouvelle action sélectionnée")
+        let home = UIAction(title: "Accueil", image: UIImage(systemName: "house")) { _ in
+            print("Home")
             
         }
-        let shareAction = UIAction(title: "Mes Recettes", image: UIImage(systemName: "cooktop.fill")) { _ in
-            print("Partager action sélectionnée")
+        let myFridge = UIAction(title: "Mon Frigo", image: UIImage(systemName: "refrigerator.fill")) { _ in
+            print("MyFridge")
+            
         }
-        let deleteAction = UIAction(title: "Liste de course", image: UIImage(systemName: "list.clipboard.fill")) { _ in
-            print("Supprimer action sélectionnée")
+        let myMix = UIAction(title: "Mes Recettes", image: UIImage(systemName: "cooktop.fill")) { _ in
+            print("myMix")
+        }
+        let myList = UIAction(title: "Liste de course", image: UIImage(systemName: "list.clipboard.fill")) { _ in
+            print("myList")
         }
         
         // Crée le menu
-        let menu = UIMenu(title: "MENU", children: [newAction, shareAction, deleteAction])
+        let menu = UIMenu(title: "MENU", children: [home, myFridge, myMix, myList])
         
         // Associe le menu au bouton
         menuButton.menu = menu

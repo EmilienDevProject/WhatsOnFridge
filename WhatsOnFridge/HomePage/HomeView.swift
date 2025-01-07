@@ -42,6 +42,7 @@ class HomeView: UIViewController {
         let mainText = UILabel()
         mainText.text = "PAGE D'ACCUEIL (ROOT)"
         mainText.translatesAutoresizingMaskIntoConstraints = false
+        mainText.backgroundColor = .gray
         return mainText
     }()
     
@@ -98,7 +99,11 @@ class HomeView: UIViewController {
             vStackView.heightAnchor.constraint(equalToConstant: 900),
             
             // mainText
-            mainText.leadingAnchor.constraint(equalTo: vStackView.leadingAnchor, constant: <#T##CGFloat#>)
+            mainText.heightAnchor.constraint(equalToConstant: 50),
+            mainText.widthAnchor.constraint(equalToConstant: 300),
+            mainText.centerXAnchor.constraint(equalTo: vStackView.centerXAnchor),
+            mainText.centerYAnchor.constraint(equalTo: vStackView.centerYAnchor)
+
         ])
     }
 }
