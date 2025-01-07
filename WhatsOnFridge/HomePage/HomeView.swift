@@ -33,13 +33,23 @@ class HomeView: UIViewController {
     private lazy var menu: MenuType = {
         let menu = MenuType()
         menu.translatesAutoresizingMaskIntoConstraints = false
+        menu.menuButton = menu
+        menu.showsMenuAsPrimaryAction = true
         return menu
     }()
  
+    private lazy var mainText: UILabel = {
+        let mainText = UILabel()
+        mainText.text = "PAGE D'ACCUEIL (ROOT)"
+        mainText.translatesAutoresizingMaskIntoConstraints = false
+        return mainText
+    }()
+    
     private lazy var vStackView: UIStackView = {
         let vStackView = UIStackView()
         vStackView.translatesAutoresizingMaskIntoConstraints = false
         vStackView.backgroundColor = .cyan
+        vStackView.addSubview(mainText)
         return vStackView
     }()
     
@@ -85,7 +95,10 @@ class HomeView: UIViewController {
             vStackView.leadingAnchor.constraint(equalTo: mainView.leadingAnchor, constant: 5),
             vStackView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -5),
             vStackView.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 5),
-            vStackView.heightAnchor.constraint(equalToConstant: 900)
+            vStackView.heightAnchor.constraint(equalToConstant: 900),
+            
+            // mainText
+            mainText.leadingAnchor.constraint(equalTo: vStackView.leadingAnchor, constant: <#T##CGFloat#>)
         ])
     }
 }

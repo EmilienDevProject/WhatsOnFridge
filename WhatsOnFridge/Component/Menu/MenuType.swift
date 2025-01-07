@@ -6,16 +6,16 @@
 //
 import UIKit
 
-class MenuType: UIView {
+class MenuType: UIButton {
     
     lazy var menuButton: UIButton = {
         let menuButton = UIButton(type: .system)
         menuButton.setTitle("Menu", for: .normal)
         menuButton.translatesAutoresizingMaskIntoConstraints = false
         menuButton.backgroundColor = .magenta
-        menuButton.addAction(UIAction { _ in
-            print("Menu button clicked")
-        }, for: .touchUpInside)
+//        menuButton.addAction(UIAction { _ in
+//            print("Menu button clicked")
+//        }, for: .touchUpInside)
         addSubview(menuButton)
         return menuButton
     }()
@@ -31,13 +31,14 @@ class MenuType: UIView {
     }
     
     private func setupMenuButton() {
-        let newAction = UIAction(title: "Nouvelle", image: UIImage(systemName: "plus")) { _ in
+        let newAction = UIAction(title: "Mon Frigo", image: UIImage(systemName: "refrigerator.fill")) { _ in
             print("Nouvelle action sélectionnée")
+            
         }
-        let shareAction = UIAction(title: "Partager", image: UIImage(systemName: "square.and.arrow.up")) { _ in
+        let shareAction = UIAction(title: "Mes Recettes", image: UIImage(systemName: "cooktop.fill")) { _ in
             print("Partager action sélectionnée")
         }
-        let deleteAction = UIAction(title: "Supprimer", image: UIImage(systemName: "trash"), attributes: .destructive) { _ in
+        let deleteAction = UIAction(title: "Liste de course", image: UIImage(systemName: "list.clipboard.fill")) { _ in
             print("Supprimer action sélectionnée")
         }
         
