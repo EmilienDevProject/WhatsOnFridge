@@ -27,21 +27,19 @@ class HomeView: UIViewController {
         let persoAcces = UIButton()
         persoAcces.translatesAutoresizingMaskIntoConstraints = false
         persoAcces.backgroundColor = .yellow
-        
         return persoAcces
     }()
     
     private lazy var menu: MenuType = {
         let menu = MenuType()
         menu.translatesAutoresizingMaskIntoConstraints = false
-        menu.backgroundColor = .magenta
         return menu
     }()
-    
+ 
     private lazy var vStackView: UIStackView = {
         let vStackView = UIStackView()
         vStackView.translatesAutoresizingMaskIntoConstraints = false
-        vStackView.backgroundColor = .orange
+        vStackView.backgroundColor = .cyan
         return vStackView
     }()
     

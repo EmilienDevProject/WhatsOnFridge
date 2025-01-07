@@ -12,6 +12,10 @@ class MenuType: UIView {
         let menuButton = UIButton(type: .system)
         menuButton.setTitle("Menu", for: .normal)
         menuButton.translatesAutoresizingMaskIntoConstraints = false
+        menuButton.backgroundColor = .magenta
+        menuButton.addAction(UIAction { _ in
+            print("Menu button clicked")
+        }, for: .touchUpInside)
         addSubview(menuButton)
         return menuButton
     }()
